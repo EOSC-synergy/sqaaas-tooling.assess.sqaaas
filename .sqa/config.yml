@@ -1,0 +1,66 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-Synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-Synergy/sqaaas-tooling
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.8
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling git:
+        commands:
+        - /usr/bin/env sh .sqa/script.scanty-orchid-mist.sh
+        container: qc.acc_lovely-bronze-avocet
+  QC.Doc:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleazy-pumpkin-scorpion.sh
+        container: qc.doc_frumpy-ochre-tiger
+      github.com/EOSC-Synergy/sqaaas-tooling git:
+        commands:
+        - /usr/bin/env sh .sqa/script.lousy-lilac-magpie.sh
+        container: qc.doc_woolly-thistle-vulture
+      github.com/EOSC-Synergy/sqaaas-tooling markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.flaky-teal-devil.sh
+        container: qc.doc_flimsy-platinum-catfish
+  QC.Lic:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.nippy-alizarin-camel.sh
+        container: qc.lic_crabby-scarlet-booby
+  QC.Sec:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.skanky-puce-cat.sh
+        container: qc.sec_leaky-puce-beagle
+  QC.Sty:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.hilly-sangria-chinchilla.sh
+        container: qc.sty_crappy-aqua-dachsbracke
+      github.com/EOSC-Synergy/sqaaas-tooling hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.pretty-ruby-dodo.sh
+        container: qc.sty_whiny-cornflower-lemur
+      github.com/EOSC-Synergy/sqaaas-tooling jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.gloppy-champagne-worm.sh
+        container: qc.sty_snazzy-mauve-mongrel
+  QC.Ver:
+    repos:
+      github.com/EOSC-Synergy/sqaaas-tooling get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.woozy-brown-bombay.sh
+        container: qc.ver_snoopy-gamboge-tuatara
+timeout: 5400
