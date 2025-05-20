@@ -4,6 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 (
-cd github.com/eosc-synergy/sqaaas-tooling &&
-    git rev-parse --is-inside-work-tree
+cd github.com/EOSC-synergy/sqaaas-tooling &&
+    licensee detect . --confidence 60 --json 
 )

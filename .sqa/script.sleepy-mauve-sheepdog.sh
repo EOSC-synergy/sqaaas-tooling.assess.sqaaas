@@ -4,6 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 (
-cd github.com/eosc-synergy/sqaaas-tooling &&
-    mdl --json .
+cd github.com/EOSC-synergy/sqaaas-tooling &&
+    jsonlint-cli "**/*.json"
 )
