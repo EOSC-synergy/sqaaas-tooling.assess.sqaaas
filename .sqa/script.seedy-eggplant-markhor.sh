@@ -5,5 +5,5 @@
 
 (
 cd github.com/EOSC-synergy/sqaaas-tooling &&
-    pynblint.py
+    flake8 .
 )
