@@ -4,6 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 (
-cd github.com/EOSC-synergy/sqaaas-tooling &&
-    bandit -f json --quiet  --confidence-level high --severity-level high --recursive  .
+cd github.com/eosc-synergy/sqaaas-tooling &&
+    licensee detect . --confidence 60 --json 
 )
